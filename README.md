@@ -25,6 +25,8 @@ passport-web 8086
 支付系统
 payment 8087
 
+manageui 8088
+
 
 
   
