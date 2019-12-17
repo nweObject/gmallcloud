@@ -1,6 +1,7 @@
 package com.atguigu.gmall;
 
 import com.atguigu.gmall.config.ActiveMQConfig;
+import com.atguigu.gmall.config.WebMvcConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -11,7 +12,7 @@ import org.springframework.context.annotation.FilterType;
 @EnableDiscoveryClient
 @SpringBootApplication
 @EnableFeignClients
-@ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {ActiveMQConfig.class})})
+@ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {ActiveMQConfig.class, WebMvcConfiguration.class})})
 public class GmallManageuiApplication {
 
     public static void main(String[] args) {

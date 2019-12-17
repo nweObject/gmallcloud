@@ -8,18 +8,18 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class MyFileUpload {
 
-    public static void main(String[] args) {
-        String img = "123123123123,1231131231,.123123,123131.sfd.sdfsdfdsfsf3.png";
-        int i = img.lastIndexOf(".");
-        System.out.println(i);
-        String substring = img.substring(i + 1);
-        System.out.println(substring);
-
-    }
+//    public static void main(String[] args) {
+//        String img = "123123123123,1231131231,.123123,123131.sfd.sdfsdfdsfsf3.png";
+//        int i = img.lastIndexOf(".");
+//        System.out.println(i);
+//        String substring = img.substring(i + 1);
+//        System.out.println(substring);
+//
+//    }
 
     public static String uploadImage(MultipartFile multipartFile) {
 
-        String url = "http://192.168.222.20";
+        String url = "http://192.168.130.128";
         String trackerPath = MyFileUpload.class.getClassLoader().getResource("tracker.properties").getPath();
         // 全局配置
         try {
