@@ -1,0 +1,30 @@
+#logging:
+#  level:
+#  root: info
+spring:
+  application:
+    name: GMALL-ITEM
+  datasource:
+    url: jdbc:mysql://localhost:3306/gmall?characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+  #    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 192.168.130.128
+    port: 6379
+    database: 0
+
+mybatis:
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  #    register-with-eureka: false
+  #    fetch-registry: false
+  instance:
+    prefer-ip-address: true
+server:
+  port: 8082
