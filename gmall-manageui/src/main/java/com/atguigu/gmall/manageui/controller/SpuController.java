@@ -1,9 +1,6 @@
 package com.atguigu.gmall.manageui.controller;
 
-import com.atguigu.gmall.bean.PmsBaseSaleAttr;
-import com.atguigu.gmall.bean.PmsProductImage;
-import com.atguigu.gmall.bean.PmsProductInfo;
-import com.atguigu.gmall.bean.PmsProductSaleAttr;
+import com.atguigu.gmall.bean.*;
 import com.atguigu.gmall.manageui.service.ManageServiceFeign;
 import com.atguigu.gmall.util.MyFileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,5 +61,11 @@ public class SpuController {
     public List<PmsProductImage> spuImageList(String spuId) {
         List<PmsProductImage> productImages = manageServiceFeign.getSpuImageList(spuId);
         return productImages;
+    }
+
+    @ResponseBody
+    @RequestMapping("saveSkuInfo")
+    public void saveSkuInfo(@RequestBody PmsSkuInfo pmsSkuInfo) {
+        manageServiceFeign.saveSkuInfo(pmsSkuInfo);
     }
 }

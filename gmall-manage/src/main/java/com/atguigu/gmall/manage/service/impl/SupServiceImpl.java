@@ -25,6 +25,14 @@ public class SupServiceImpl implements SpuService {
     PmsProductImageMapper pmsProductImageMapper;
     @Autowired
     PmsProductSaleAttrValueMapper pmsProductSaleAttrValueMapper;
+    @Autowired
+    PmsSkuInfoMapper pmsSkuInfoMapper;
+    @Autowired
+    PmsSkuAttrValueMapper pmsSkuAttrValueMapper;
+    @Autowired
+    PmsSkuSaleAttrValueMapper pmsSkuSaleAttrValueMapper;
+    @Autowired
+    PmsSkuImageMapper pmsSkuImageMapper;
     @Override
     public List<PmsProductInfo> getSpuInfo(@RequestParam("catalog3Id") String catalog3Id) {
         PmsProductInfo pmsProductInfo = new PmsProductInfo();
@@ -83,5 +91,26 @@ public class SupServiceImpl implements SpuService {
         pmsProductImage.setProductId(spuId);
         List<PmsProductImage> selectResult = pmsProductImageMapper.select(pmsProductImage);
         return selectResult;
+    }
+
+    @Override
+    public void saveSkuInfo(PmsSkuInfo pmsSkuInfo) {
+        pmsSkuInfoMapper.insertSelective(pmsSkuInfo);
+        String skuId = pmsSkuInfo.getId();
+        List<PmsSkuSaleAttrValue> skuSaleAttrValueList = pmsSkuInfo.getSkuSaleAttrValueList();
+        List<PmsSkuAttrValue> skuAttrValueList = pmsSkuInfo.getSkuAttrValueList();
+        List<PmsSkuImage> skuImageList = pmsSkuInfo.getSkuImageList();
+        for (PmsSkuAttrValue pmsSkuAttrValue : skuAttrValueList) {
+            pmsSkuAttrValue.setSkuId(skuId);
+            pmsSkuAttrValueMapper.insertSelective(pmsSkuAttrValue);
+        }
+        for (PmsSkuSaleAttrValue pmsSkuSaleAttrValue : skuSaleAttrValueList) {
+            pmsSkuSaleAttrValue.setSkuId(skuId);
+            pmsSkuSaleAttrValueMapper.insertSelective(pmsSkuSaleAttrValue);
+        }
+        for (PmsSkuImage pmsSkuImage : skuImageList) {
+            pmsSkuImage.setSkuId(skuId);
+            pmsSkuImageMapper.insertSelective(pmsSkuImage);
+        }
     }
 }

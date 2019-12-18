@@ -44,4 +44,7 @@ public interface ManageServiceFeign {
 
     @RequestMapping("/manage/spuImageList")
     List<PmsProductImage> getSpuImageList(@RequestParam("spuId") String spuId);
+
+    @RequestMapping("/manage/saveSkuInfo")
+    void saveSkuInfo(@RequestBody PmsSkuInfo pmsSkuInfo);
 }

@@ -1,9 +1,6 @@
 package com.atguigu.gmall.service;
 
-import com.atguigu.gmall.bean.PmsBaseSaleAttr;
-import com.atguigu.gmall.bean.PmsProductImage;
-import com.atguigu.gmall.bean.PmsProductInfo;
-import com.atguigu.gmall.bean.PmsProductSaleAttr;
+import com.atguigu.gmall.bean.*;
 
 import java.util.List;
 
@@ -21,4 +18,6 @@ public interface SpuService {
     List<PmsProductSaleAttr> getSpuSaleAttrList(String spuId);
 
     List<PmsProductImage> getSpuImageList(String spuId);
+
+    void saveSkuInfo(PmsSkuInfo pmsSkuInfo);
 }

@@ -1,9 +1,6 @@
 package com.atguigu.gmall.manage.controller;
 
-import com.atguigu.gmall.bean.PmsBaseSaleAttr;
-import com.atguigu.gmall.bean.PmsProductImage;
-import com.atguigu.gmall.bean.PmsProductInfo;
-import com.atguigu.gmall.bean.PmsProductSaleAttr;
+import com.atguigu.gmall.bean.*;
 import com.atguigu.gmall.service.SpuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -52,5 +49,11 @@ public class RSpuController {
     List<PmsProductImage> getSpuImageList(@RequestParam("spuId") String spuId) {
         List<PmsProductImage> productImages = spuService.getSpuImageList(spuId);
         return productImages;
+    }
+
+    @ResponseBody
+    @RequestMapping("/saveSkuInfo")
+    void saveSkuInfo(@RequestBody PmsSkuInfo pmsSkuInfo) {
+        spuService.saveSkuInfo(pmsSkuInfo);
     }
 }
