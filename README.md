@@ -8,7 +8,8 @@ user-web:8080
 manage-web:8081
 
 商品详情模块
-item-web 8082
+gmall-item 8082
+
 
 搜索
 search-web 8083

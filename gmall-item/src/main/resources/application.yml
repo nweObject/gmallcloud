@@ -13,7 +13,9 @@ spring:
     host: 192.168.130.128
     port: 6379
     database: 0
-
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
 mybatis:
   mapper-locations: classpath:/mybatis/mapper/*.xml
   configuration:

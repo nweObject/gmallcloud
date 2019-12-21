@@ -11,7 +11,7 @@ import org.springframework.context.annotation.FilterType;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @EnableDiscoveryClient
-@MapperScan(basePackages="com.atguigu.gmall.manage.mapper")
+@MapperScan("com.atguigu.gmall.manage.mapper")
 @SpringBootApplication
 @EnableFeignClients
 @ComponentScan(excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {ActiveMQConfig.class, WebMvcConfiguration.class})})
